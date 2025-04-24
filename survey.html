@@ -9,11 +9,18 @@
     <title>My Portfolio | Survey</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
         <nav class="main-nav">
-            <ul>
+            <div class="nav-brand">
+                <a href="index.html">Portfolio</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
@@ -40,42 +47,39 @@
                 <div class="form-group">
                     <label>How did you find this website?</label>
                     <div class="radio-group">
-                        
                         <label for="search">Search Engine</label>
-                        <input type="radio" id="search" name="discovery" value="search" required>
+                        <input type="radio" id="search" name="source" value="search" required>
                         
                         <label for="social">Social Media</label>
-                        <input type="radio" id="social" name="discovery" value="social">
+                        <input type="radio" id="social" name="source" value="social">
                         
-                        <label for="referral">Referral</label>
-                        <input type="radio" id="referral" name="discovery" value="referral">
- 
+                        <label for="friend">Friend/Colleague</label>
+                        <input type="radio" id="friend" name="source" value="friend">
+                        
                         <label for="other">Other</label>
-                        <input type="radio" id="other" name="discovery" value="other">
+                        <input type="radio" id="other" name="source" value="other">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Which sections did you find most useful? (Select all that apply)</label>
+                    <label>Which features did you find most useful?</label>
                     <div class="checkbox-group">
+                        <label for="portfolio">Portfolio Gallery</label>
+                        <input type="checkbox" id="portfolio" name="features" value="portfolio">
                         
-                        <label for="home">Homepage</label>
-                        <input type="checkbox" id="home" name="useful-sections" value="home">
-
-                        <label for="about">About Me</label>
-                        <input type="checkbox" id="about" name="useful-sections" value="about">
+                        <label for="contact">Contact Form</label>
+                        <input type="checkbox" id="contact" name="features" value="contact">
                         
-                        <label for="portfolio">Portfolio</label>
-                        <input type="checkbox" id="portfolio" name="useful-sections" value="portfolio">
-
-                        <label for="contact">Contact</label>
-                        <input type="checkbox" id="contact" name="useful-sections" value="contact">
+                        <label for="skills">Skills Section</label>
+                        <input type="checkbox" id="skills" name="features" value="skills">
+                        
+                        <label for="about">About Page</label>
+                        <input type="checkbox" id="about" name="features" value="about">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="rating">How would you rate the overall design of the website?</label><br>
-
+                    <label for="rating">How would you rate your overall experience?</label>
                     <select id="rating" name="rating" required>
                         <option value="">Select a rating</option>
                         <option value="5">Excellent</option>
@@ -87,26 +91,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="improvements">What improvements would you suggest?</label>
-                    <textarea id="improvements" name="improvements" rows="5"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="frequency">How often do you visit portfolio websites?</label>
-                    <select id="frequency" name="frequency" required>
-                        <option value="">Select frequency</option>
-                        <option value="daily">Daily</option>
-                        <option value="weekly">Weekly</option>
-                        <option value="monthly">Monthly</option>
-                        <option value="rarely">Rarely</option>
-                        <option value="first">This is my first time</option>
-                    </select>
+                    <label for="feedback">Additional Comments</label>
+                    <textarea id="feedback" name="feedback" rows="4"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Would you recommend this website to others?</label>
                     <div class="radio-group">
-                        
                         <label for="yes">Yes</label>
                         <input type="radio" id="yes" name="recommend" value="yes" required>
                         
@@ -124,7 +115,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
+        <p>&copy; 2024 Masudi Ally. All rights reserved.</p>
         <div class="social-links">
             <a href="https://github.com/yourusername" target="_blank">GitHub</a>
             <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>

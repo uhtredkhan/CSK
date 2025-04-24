@@ -29,24 +29,35 @@ body {
 /* Navigation */
 .main-nav {
     background-color: var(--primary-color);
-    padding: 1rem;
+    padding: 1rem 2rem;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.main-nav ul {
+.nav-brand a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Georgia', serif;
+}
+
+.nav-links {
     display: flex;
     justify-content: center;
     list-style: none;
     gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
 }
 
-.main-nav a {
+.nav-links a {
     color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -55,10 +66,117 @@ body {
     font-weight: 500;
 }
 
-.main-nav a:hover,
-.main-nav a.active {
+.nav-links a:hover,
+.nav-links a.active {
     background-color: var(--secondary-color);
     transform: translateY(-2px);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: white;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    bottom: -8px;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        align-items: center;
+        padding: 6rem 2rem 2rem;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    /* Hamburger Animation */
+    .mobile-menu-btn.active .hamburger {
+        background: transparent;
+    }
+
+    .mobile-menu-btn.active .hamburger::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .mobile-menu-btn.active .hamburger::after {
+        transform: rotate(-45deg);
+        bottom: 0;
+    }
+
+    /* Overlay when menu is open */
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 /* Hero Section */
@@ -542,6 +660,93 @@ footer {
     color: var(--primary-color);
 }
 
+/* Map Container Styles */
+.map-container {
+    margin-top: 4rem;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.map-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    font-size: 2.5rem;
+    font-family: 'Georgia', serif;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.map-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--secondary-color);
+}
+
+.map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.map-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.map-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Update contact container for better layout */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .map-container {
+        padding: 0 1rem;
+    }
+
+    .map-wrapper {
+        height: 300px;
+    }
+
+    .map-container h2 {
+        font-size: 2rem;
+    }
+}
+
 /* Portfolio Page Styles */
 .portfolio-section {
     padding: 8rem 2rem 6rem;
@@ -672,16 +877,6 @@ footer {
     filter: brightness(0.9);
 }
 
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
-    margin-top: 3rem;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .contact-info {
     background: rgba(255, 255, 255, 0.85);
     padding: 2.5rem;
@@ -788,7 +983,7 @@ footer {
     max-width: 600px;
     margin: 2rem auto 0;
     background: rgba(255, 255, 255, 0.85);
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
@@ -806,34 +1001,51 @@ footer {
 .checkbox-group {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
-    margin-top: 0.8rem;
+    gap: 1rem;
+    margin-top: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .radio-group label,
 .checkbox-group label {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 1rem;
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.radio-group label:hover,
+.checkbox-group label:hover {
+    background: rgba(52, 152, 219, 0.1);
+    transform: translateX(5px);
 }
 
 .radio-group input[type="radio"],
 .checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
     margin: 0;
     cursor: pointer;
+    accent-color: var(--secondary-color);
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 0.8rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: var(--primary-color);
     font-size: 1.1rem;
 }
 
@@ -841,13 +1053,13 @@ footer {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 0.8rem 1rem;
+    padding: 1rem;
     border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     transition: all 0.3s ease;
     background: rgba(255, 255, 255, 0.95);
     font-size: 1rem;
-    color: #2c3e50;
+    color: var(--text-color);
 }
 
 .form-group input:focus,
@@ -862,24 +1074,62 @@ footer {
 .submit-btn {
     background-color: var(--secondary-color);
     color: white;
-    padding: 0.8rem 1.5rem;
+    padding: 1rem 2rem;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
-    width: auto;
-    min-width: 150px;
-    margin: 2rem auto 0;
+    width: 100%;
     text-transform: uppercase;
     letter-spacing: 1px;
-    display: block;
+    margin-top: 2rem;
 }
 
 .submit-btn:hover {
     background-color: var(--primary-color);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .survey-form {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .radio-group,
+    .checkbox-group {
+        padding: 1rem;
+        gap: 0.8rem;
+    }
+
+    .radio-group label,
+    .checkbox-group label {
+        padding: 0.6rem;
+        font-size: 0.95rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    .submit-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
 }
 
 /* Section Headers */
