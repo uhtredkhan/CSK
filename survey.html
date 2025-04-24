@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Take our survey to help us improve our services">
+    <meta name="keywords" content="survey, feedback, form, questionnaire">
+    <meta name="author" content="Your Name">
+    <title>My Portfolio | Survey</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="survey.html" class="active">Survey</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="survey-section">
+            <h1>Website Feedback Survey</h1>
+            <form id="survey-form" class="survey-form">
+                <div class="form-group">
+                    <label for="survey-name">Name</label>
+                    <input type="text" id="survey-name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="survey-email">Email</label>
+                    <input type="email" id="survey-email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>How did you find this website?</label>
+                    <div class="radio-group">
+                        
+                        <label for="search">Search Engine</label>
+                        <input type="radio" id="search" name="discovery" value="search" required>
+                        
+                        <label for="social">Social Media</label>
+                        <input type="radio" id="social" name="discovery" value="social">
+                        
+                        <label for="referral">Referral</label>
+                        <input type="radio" id="referral" name="discovery" value="referral">
+ 
+                        <label for="other">Other</label>
+                        <input type="radio" id="other" name="discovery" value="other">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Which sections did you find most useful? (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        
+                        <label for="home">Homepage</label>
+                        <input type="checkbox" id="home" name="useful-sections" value="home">
+
+                        <label for="about">About Me</label>
+                        <input type="checkbox" id="about" name="useful-sections" value="about">
+                        
+                        <label for="portfolio">Portfolio</label>
+                        <input type="checkbox" id="portfolio" name="useful-sections" value="portfolio">
+
+                        <label for="contact">Contact</label>
+                        <input type="checkbox" id="contact" name="useful-sections" value="contact">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">How would you rate the overall design of the website?</label><br>
+
+                    <select id="rating" name="rating" required>
+                        <option value="">Select a rating</option>
+                        <option value="5">Excellent</option>
+                        <option value="4">Very Good</option>
+                        <option value="3">Good</option>
+                        <option value="2">Fair</option>
+                        <option value="1">Poor</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="improvements">What improvements would you suggest?</label>
+                    <textarea id="improvements" name="improvements" rows="5"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="frequency">How often do you visit portfolio websites?</label>
+                    <select id="frequency" name="frequency" required>
+                        <option value="">Select frequency</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="rarely">Rarely</option>
+                        <option value="first">This is my first time</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Would you recommend this website to others?</label>
+                    <div class="radio-group">
+                        
+                        <label for="yes">Yes</label>
+                        <input type="radio" id="yes" name="recommend" value="yes" required>
+                        
+                        <label for="no">No</label>
+                        <input type="radio" id="no" name="recommend" value="no">
+                        
+                        <label for="maybe">Maybe</label>
+                        <input type="radio" id="maybe" name="recommend" value="maybe">
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Survey</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+
+    <button id="theme-toggle">Toggle Dark Mode</button>
+    <script src="js/main.js"></script>
+</body>
+</html> 
